@@ -26,22 +26,22 @@ const A = styled(Link)`
 `;
 const Shadow = keyframes`
     0%{
-    		box-shadow:inset 80px -80px 50px -30px rgba(0,0,0,0.5);
+    		box-shadow:inset 80px -80px 50px 23px rgba(0,0,0,0.5);
     }
     33%{
-    		box-shadow:inset 80px -80px 50px 0px rgba(0,0,0,0.5);
+    		box-shadow:inset 80px -80px 50px -53px rgba(0,0,0,0.5);
     }
     66%{
-    		box-shadow:inset 80px -80px 50px -30px rgba(0,0,0,0.5);
+    		box-shadow:inset 80px -80px 50px 23px rgba(0,0,0,0.5);
     }
     100%{
-    	box-shadow:inset 80px -80px 50px -30px rgba(0,0,0,0.5);
+    	box-shadow:inset 80px -80px 50px 23px rgba(0,0,0,0.5);
     }
 
 `;
 
 const Overlay = styled.div`
-	box-shadow:inset 80px -80px 50px -30px rgba(0,0,0,0.5);
+	box-shadow:inset 80px -80px 50px 23px rgba(0,0,0,0.5);
 	width:100%;
 	height:300px;
 	position:absolute;

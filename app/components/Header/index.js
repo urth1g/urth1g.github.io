@@ -16,7 +16,7 @@ const Wrapper = styled.div`
     min-height:100vh;
 `;
 const Overlay = styled.div`
-    background: linear-gradient(rgba(0,0,0,1) 0%, rgba(255,255,255,0.1) 18%);
+    background: linear-gradient(rgba(0,0,0,0.6) 15%, rgba(0,0,0,0.1) 40%);
     position:absolute;
     width:100%;
     height:100vh;
