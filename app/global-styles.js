@@ -11,13 +11,20 @@ const GlobalStyle = createGlobalStyle`
     0%{
         box-shadow: 0px 0px 40px 10px #FEFF8B;
     }
-    33%{
+    20%{
         box-shadow: 0px 0px 40px 35px #FEFF8B;
         background-color:#FA832A;
     }
-    66%{
-        box-shadow: 0px 0px 40px 10px #FEFF8B;
+    40%{
+        box-shadow: 0px 0px 40px 35px #FEFF8B;
+        background-color:#FA832A;
+    }
+    60%{
+        box-shadow: 0px 0px 40px 35px #FEFF8B;
         background-color:#FECC3F;
+    }
+    80%{
+        box-shadow: 0px 0px 40px 10px #FEFF8B;
     }
     100%{
         box-shadow: 0px 0px 40px 10px #FEFF8B;
@@ -31,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
     height:30px;
     opacity:1;
     border-radius:50%;
-    animation: shine 6s linear infinite;
+    animation: shine 7s linear infinite;
     box-shadow: 0px 0px 40px 10px #FEFF8B;
     position:absolute;
   }

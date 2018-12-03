@@ -10,12 +10,12 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
-
-import HomePage from 'containers/HomePage/Loadable';
-import FeaturePage from 'containers/FeaturePage/Loadable';
+import $ from 'jquery';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Footer from 'components/Footer';
-import Header from 'components/Header';
+import {Header} from 'components/Header';
+import AboutPage from 'containers/AboutPage/Loadable';
+import {Nav} from 'components/Nav/index.js';
 
 import GlobalStyle from '../../global-styles';
 
@@ -30,26 +30,27 @@ const AppWrapper = styled.div`
 var divStyle = {
   padding: '0'
 }
+
 export default function App() {
   return (
     <AppWrapper>
       <Helmet
-        titleTemplate="%s - React.js Boilerplate"
-        defaultTitle="React.js Boilerplate"
+        titleTemplate="%s | Portfolio"
+        defaultTitle="Đorđe Jevremović | Portfolio"
       >
-        <meta name="description" content="A React.js Boilerplate application" />
+        <meta name="description" content="Đorđe Jevremović - Portfolio" />
       </Helmet>
       <div className="container-fluid" style={divStyle}>
-        <div className="row" style={{margin:'0'}}>
+        <div className="row page-1 active" style={{margin:'0'}}>
           <div className="col-sm-12" style={{padding:'0'}}>
             <Header />
           </div>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/features" component={FeaturePage} />
-            <Route path="" component={NotFoundPage} />
-          </Switch>
         </div>
+        <div className="row page-2" style={{margin:'0', display:'none'}}>
+          <div className="col-sm-12" style={{padding:'0'}}>
+            <AboutPage />
+          </div>
+        </div>        
       </div>
       <GlobalStyle />
     </AppWrapper>

@@ -5,6 +5,10 @@ import {Nav, Img} from '../Nav/index.js';
 
 import styled from 'styled-components';
 import BgImg from '../../images/bg.jpg';
+import SunSpotGenerator from 'components/SunSpot';
+import SunSpot from 'components/SunSpot/SunSpot.js';
+
+import $ from 'jquery';
 
 const Wrapper = styled.div`
     background: url(${BgImg});
@@ -16,7 +20,7 @@ const Wrapper = styled.div`
     min-height:100vh;
 `;
 const Overlay = styled.div`
-    background: linear-gradient(rgba(0,0,0,0.6) 15%, rgba(0,0,0,0.1) 40%);
+    background: linear-gradient(rgba(0,0,0,0.25) 15%, rgba(0,0,0,0.1) 40%);
     position:absolute;
     width:100%;
     height:100vh;
@@ -33,9 +37,22 @@ const H1 = styled.h1`
 
 /* eslint-disable react/prefer-stateless-function */
 class Header extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {circlePos: SunSpotGenerator()}
+  }
+
   render() {
+    var a = this.state.circlePos;
+    var _this = this;
+
     return (
       <Wrapper>
+          <div style={{overflow:'hidden', position:'absolute', height:'500px', width:'100%'}}>
+            {a.map((x) => {
+              return ( <SunSpot className="sunspot" key={x.leftPosition + x.topPosition} leftPosition={x.leftPosition + 'px'} topPosition={x.topPosition + 'px'} radius={x.radius} spread={x.spread} color={x.color} />)
+            })}
+          </div>
           <div id="sun"></div>
           <Overlay />
           <Nav />
@@ -47,4 +64,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export {Header};

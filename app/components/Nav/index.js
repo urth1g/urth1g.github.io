@@ -6,7 +6,12 @@ import ListItem from './ListItem';
 import { Link } from 'react-router-dom';
 
 import Pic from '../../images/pic.jpg';
-import NormalImg from 'components/Img';
+import $ from 'jquery';
+
+import store from './reducer.js';
+
+
+var state = store.getState();
 
 const NAV = styled.nav`
   position:relative;
@@ -28,10 +33,16 @@ const Shadow = keyframes`
     0%{
     		box-shadow:inset 80px -80px 50px 23px rgba(0,0,0,0.5);
     }
-    33%{
+    20%{
     		box-shadow:inset 80px -80px 50px -53px rgba(0,0,0,0.5);
     }
-    66%{
+    40%{
+    		box-shadow:inset 80px -80px 50px -53px rgba(0,0,0,0.5);
+    }
+    60%{
+    		box-shadow:inset 80px -80px 50px -53px rgba(0,0,0,0.5);
+    }
+    80%{
     		box-shadow:inset 80px -80px 50px 23px rgba(0,0,0,0.5);
     }
     100%{
@@ -47,7 +58,7 @@ const Overlay = styled.div`
 	position:absolute;
 	display:block;
 	border-radius:50%;
-	animation: ${Shadow} 6s linear infinite;
+	animation: ${Shadow} 7s linear infinite;
 	animation-delay:0.2s;
 `;
 
@@ -60,15 +71,52 @@ function Img(){
 	)
 }
 class Nav extends React.Component {
+	constructor(props){
+		super(props);
+		this.page1 = React.createRef();
+		this.page2 = React.createRef();
+		this.page3 = React.createRef();
+		this.page4 = React.createRef();				
+		this.page5 = React.createRef();		
+	}
+
+	onClick(e){
+		e.preventDefault();
+		var page = '.' + $(e.target).data('page');
+		if(page !== state.get("page")){
+
+			$(".active").addClass("zoomOutLeft animated");
+			$(".active").one("animationend", function(){
+				$(".active").css({'display':'none'});
+				$(".active").removeClass("zoomOutLeft animated");
+				$(".active").removeClass("active");
+				$(page).addClass("zoomInLeft animated");
+				$(page).css({display:'block'});
+			});
+			$(page).one("animationend", function(){
+				$(page).removeClass("zoomInLeft animated");
+				$(page).addClass("active");
+			})
+			store.dispatch({
+			  type:'SET_PAGE',
+			  page: page
+			});
+
+			state = store.getState();
+		}
+
+
+
+	}
 	render(){
 		return(
 			<NAV>
 				<List>
-					<ListItem><A to="/">Home</A></ListItem>
-					<ListItem><A to="/about">About me</A></ListItem>
-					<ListItem><A to="/resume">Resume</A></ListItem>
-					<ListItem><A to="/projects">Projects</A></ListItem>
-					<ListItem><A to="/contacts">Contact</A></ListItem>
+					<ListItem><A onClick={this.onClick.bind(this)} ref={this.page1} data-page="page-1" to="/">Home</A></ListItem>
+					<ListItem><A onClick={this.onClick.bind(this)} ref={this.page2} data-page="page-2" to="/">About me</A></ListItem>
+					<ListItem><A onClick={this.onClick.bind(this)} ref={this.page3} data-page="page-3" to="/">Resume</A></ListItem>
+					<ListItem><A onClick={this.onClick.bind(this)} ref={this.page4} data-page="page-4" to="/">Projects</A></ListItem>
+					<ListItem><A onClick={this.onClick.bind(this)} ref={this.page5} data-page="page-5" to="/">Contact</A></ListItem>
 				</List>
 			</NAV>
 		)
