@@ -50,7 +50,4 @@ function GenerateSpots() {
   return array;
 }
 
-const callback = () => {
-  GenerateSpots();
-};
-export default callback;
+export default GenerateSpots;
