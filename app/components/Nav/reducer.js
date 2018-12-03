@@ -19,8 +19,8 @@ function appReducer(state = initialState, action) {
 const store = createStore(appReducer);
 
 store.dispatch({
-  type:'SET_PAGE',
-  page: '.page-1'
+  type: 'SET_PAGE',
+  page: '.page-1',
 });
 
 export default store;
