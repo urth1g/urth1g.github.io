@@ -1,69 +1,36 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
-import $ from 'jquery';
-import { Nav } from 'components/Nav';
-import Img from 'images/bg1.jpg';
+import styled from 'styled-components';
+// import $ from 'jquery';
+// import { Nav } from 'components/Nav';
+// import Img from 'images/bg1.jpg';
+import WebImg from 'images/web2.png';
 import P from './p';
 
+/* eslint-disable no-unused-vars */
 const Overlay = styled.div`
-  background: linear-gradient(rgba(0, 0, 0, 0.25) 15%, rgba(0, 0, 0, 0.25) 40%);
+  background: linear-gradient(rgba(0, 0, 0, 0.1) 15%, rgba(0, 0, 0, 0.5) 40%);
   position: absolute;
-  width: 100%;
+  width: 60%;
   height: 100vh;
+  border-radius: 50%;
 `;
+/* eslint-disable no-unused-vars */
 
 const Wrapper = styled.div`
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url(${Img});
+  background-image: linear-gradient(white 0%, white 100%);
   background-position: 56% 80%;
+  background-attachment: fixed;
 `;
 
-const animation = keyframes`
-  0% { top: 0; left:0; }
-  20% { top: 25%; left:10%;}
-  40% { left:25%; top: 83%;}
-  60% { left: 60%; top: 48%;}
-  80% { left: 80%; top: 80%; }
-  100%{ left: 65%; top: 50%;}
+const ImgContainer = styled.div`
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 `;
-
-const Light = styled.div`
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background: rgba(255, 255, 255, 1);
-  animation: ${animation} 5s forwards;
-  box-shadow: 0px 0px 50px 0px rgba(255, 255, 255, 1);
-  z-index: 0;
-  transition: 2s all;
-  border-radius: 50%;
-`;
-function Pic() {
-  return (
-    <div
-      className="imgWrapper"
-      style={{
-        left: '50%',
-        textAlign: 'center',
-        width: '300px',
-        transform: 'translateX(-50%)',
-        position: 'relative',
-        display: 'inline-block',
-      }}
-    >
-      <img
-        style={{ border: '3px solid white' }}
-        width="300"
-        height="300"
-        className="rounded-circle"
-        alt="pic"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/800px-Flag_of_Serbia.svg.png"
-      />
-    </div>
-  );
-}
 
 class AboutPage extends React.Component {
   constructor(props) {
@@ -71,23 +38,42 @@ class AboutPage extends React.Component {
     this.ref = React.createRef();
   }
 
-  componentDidMount() {
-    $(this.ref.current).on('animationend', () => {
-      $(this.ref.current).css({
-        'box-shadow': '0px 0px 50px 0px rgba(195,195,195,1)',
-        background: 'rgba(189,189,191,0.9)',
-      });
-    });
-  }
+  componentDidMount() {}
 
   render() {
     return (
       <Wrapper>
-        <Overlay />
-        <Light ref={this.ref} />
-        <Nav />
-        <Pic />
-        <P>Hello, i am a young web developer from Serbia, Jagodina.</P>
+        <h2 style={{ textAlign: 'center', paddingTop: '25px' }}>About me</h2>
+        <div className="row">
+          <div className="col-sm-6">
+            <P>Hello!</P>
+            <P>
+              My name is Djordje and I am a young web developer from Jagodina
+              with a huge passion for programming.
+            </P>
+            <P>
+              My story begins in February 2016, right after I have decided to go
+              through with an idea of mine which was giving me an itch for a
+              while back then. I found everything that I would need to create my
+              business, devoted almost all of my free time to learn the required
+              skills, and after 3 months of hard work I have finally watched my
+              idea becoming a reality and it felt awesome.
+            </P>
+            <P>
+              After that, I really started to dig programming and to this day,
+              I&#39;m still looking on it more as a hobby than as a job. Through
+              the years, I have trained myself to work in both LAMP and MERN
+              environments and I got a solid grasp of both Front-end and
+              Back-end technologies.
+            </P>
+            <P>Nice to meet you, by the way &#58;&#41;</P>
+          </div>
+          <div className="col-sm-6">
+            <ImgContainer className="img1">
+              <img src={WebImg} alt="Web Development" />
+            </ImgContainer>
+          </div>
+        </div>
       </Wrapper>
     );
   }

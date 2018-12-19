@@ -1,12 +1,12 @@
 import React from 'react';
 
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import List from './List';
 import ListItem from './ListItem';
 
-import Pic from '../../images/pic.jpg';
+import Pic from '../../images/slika2.jpg';
 
 import store from './reducer';
 
@@ -16,7 +16,8 @@ const NAV = styled.nav`
   position: relative;
   height: auto;
   left: 0;
-  padding: 5px;
+  padding: 0px;
+  z-index: 2;
   text-align: center;
 `;
 
@@ -28,37 +29,16 @@ const A = styled(Link)`
     color: lightblue;
   }
 `;
-const Shadow = keyframes`
-    0%{
-    		box-shadow:inset 80px -80px 50px 23px rgba(0,0,0,0.5);
-    }
-    20%{
-    		box-shadow:inset 80px -80px 50px -53px rgba(0,0,0,0.5);
-    }
-    40%{
-    		box-shadow:inset 80px -80px 50px -53px rgba(0,0,0,0.5);
-    }
-    60%{
-    		box-shadow:inset 80px -80px 50px -53px rgba(0,0,0,0.5);
-    }
-    80%{
-    		box-shadow:inset 80px -80px 50px 23px rgba(0,0,0,0.5);
-    }
-    100%{
-    	box-shadow:inset 80px -80px 50px 23px rgba(0,0,0,0.5);
-    }
-
-`;
 
 const Overlay = styled.div`
   box-shadow: inset 80px -80px 50px 23px rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 300px;
+  width: 150px;
+  height: 250px;
   position: absolute;
   display: block;
-  border-radius: 50%;
-  animation: ${Shadow} 7s linear infinite;
-  animation-delay: 0.2s;
+  border-radius: 25px;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 function Img() {
@@ -76,10 +56,9 @@ function Img() {
     >
       <Overlay />
       <img
-        style={{ border: '3px solid white' }}
-        width="300"
-        height="300"
-        className="rounded-circle"
+        style={{ border: '3px solid white', borderRadius: '25px' }}
+        width="150"
+        height="250"
         alt="pic"
         src={Pic}
       />

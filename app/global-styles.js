@@ -5,8 +5,12 @@ const GlobalStyle = createGlobalStyle`
   body {
     height: 100%;
     width: 100%;
+    scrollbar-width:none;
   }
 
+  a{
+    color:white;
+  }
   @keyframes shine{
     0%{
         box-shadow: 0px 0px 40px 10px #FEFF8B;
@@ -60,6 +64,27 @@ const GlobalStyle = createGlobalStyle`
   label {
     font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
+  }
+
+  i{
+    margin:0px 10px; 
+  }
+  i:hover{
+    color:gray;
+    transform:scale(1.2);
+  }
+  img:hover{
+    transform:scale(1.2);
+  }
+  img:hover{
+    color:gray;
+  }
+
+  .container-fluid::-webkit-scrollbar{
+    display:none;
+  }
+  ::-webkit-scrollbar {
+    display: none;
   }
 `;
 

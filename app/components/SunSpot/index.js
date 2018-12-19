@@ -28,7 +28,7 @@ function GenerateSpots() {
       default:
         color = '#ff5c38';
     }
-    const spread = `${Math.floor(Math.random() * 25) + 5}px`;
+    const spread = `${Math.floor(Math.random() * 15) + 10}px`;
     const radius = `${Math.floor(Math.random() * 20) + 20}px`;
     const randLeft = getRandomInteger(
       minPositionBasedOnWidth,
