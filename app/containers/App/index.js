@@ -62,7 +62,7 @@ export default function App() {
               style={{ margin: '0', display: 'block' }}
             >
               <div className="col-sm-12" style={{ padding: '0' }}>
-                <ProjectsPage />
+                <SkillsPage />
               </div>
             </div>
             <div
@@ -70,7 +70,7 @@ export default function App() {
               style={{ margin: '0', display: 'block' }}
             >
               <div className="col-sm-12" style={{ padding: '0' }}>
-                <SkillsPage />
+                <ProjectsPage />
               </div>
             </div>
             <div

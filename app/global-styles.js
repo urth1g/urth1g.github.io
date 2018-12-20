@@ -68,13 +68,17 @@ const GlobalStyle = createGlobalStyle`
 
   i{
     margin:0px 10px; 
+    transition: .5s all;
   }
   i:hover{
     color:gray;
-    transform:scale(1.2);
+    transform:scale(1.1);
+  }
+  img{
+    transition:.5s all;
   }
   img:hover{
-    transform:scale(1.2);
+    transform:scale(1.1);
   }
   img:hover{
     color:gray;

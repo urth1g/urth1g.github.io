@@ -5,7 +5,7 @@ import Wrapper from './Wrapper';
 
 const SkillsPage = () => (
   <Wrapper>
-    <h1>Skills</h1>
+    <h1 style={{ textAlign: 'center', paddingTop: '25px' }}>Skills</h1>
   </Wrapper>
 );
 export default SkillsPage;

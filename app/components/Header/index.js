@@ -12,7 +12,6 @@ import BgImg from '../../images/bg.jpg';
 import { Nav, Img } from '../Nav';
 
 const Wrapper = styled.div`
-  background: url(${BgImg});
   background-size: cover;
   background-attachment: fixed;
   width: 100%;
@@ -20,6 +19,11 @@ const Wrapper = styled.div`
   background-position: center bottom;
   background-repeat: no-repeat;
   min-height: 100vh;
+  transition: 3s all;
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `;
 const Overlay = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.55) 15%, rgba(0, 0, 0, 0.4) 40%);
@@ -38,6 +42,7 @@ const H1 = styled.h1`
   font-family: Nunito, sans-serif;
   font-size: 50px;
   text-shadow: -5px 5px 15px rgba(0, 0, 0, 1);
+  animation-delay: ${props => props.delay};
 `;
 
 const IconsWrapper = styled.div`
@@ -58,21 +63,21 @@ const ResumeDiv = styled.div`
   width: 72px;
   height: 57px;
   background-repeat: no-repeat;
-  position: relative;
   top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
   display: block;
   cursor: pointer;
-  transform: translateY(-50%);
+  transition: transform 0.5s;
   &:hover {
+    display: block;
+    position: absolute;
     background: url(${GrayCV});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    width: 80px;
-    height: 63px;
     cursor: pointer;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    transform: scale(1.08) translateY(-50%);
   }
 `;
 
@@ -81,10 +86,11 @@ const IconsDiv = styled.div`
   display: inline-block;
   padding: 10px 10px;
   margin: 0 10px;
-  height: 110px;
-  width: 92px;
+  height: 113px;
+  width: 95px;
   position: relative;
   border-radius: 25px;
+  animation-delay: ${props => props.delay};
 `;
 
 const A = styled.a`
@@ -100,6 +106,19 @@ const Info = styled.p`
   color: white;
   z-index: 2;
   margin-bottom: 5px;
+`;
+
+const Child = styled.div`
+  width: 100%;
+  height: 100vh;
+  background: url(${BgImg});
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  padding-top: 30px;
+  transition: all 3s;
+  position: absolute;
 `;
 /* eslint-disable react/prefer-stateless-function */
 class Header extends React.Component {
@@ -121,43 +140,53 @@ class Header extends React.Component {
     return (
       <Wrapper>
         <Overlay />
-        <Nav />
-        <Img />
-        <H1>
-          <FormattedMessage {...messages.name} />
-        </H1>
-        <H1 style={{ marginBottom: 0 }}>
-          <FormattedMessage {...messages.title} />
-        </H1>
-        <IconsWrapper>
-          <IconsDiv>
-            <A href="https://www.facebook.com/urthiens" target="_blank">
-              <i className="fab fa-facebook-square" />
-            </A>
-          </IconsDiv>
-          <IconsDiv>
-            <A href="skype:live:jevremovicdjordje97?call">
-              <i className="fab fa-skype" />
-            </A>
-          </IconsDiv>
-          <IconsDiv>
-            <A
-              href="https://www.linkedin.com/in/djordje-jevremovic-b09a94175/"
-              target="_blank"
+        <Child>
+          <Nav />
+          <Img />
+          <H1 className="fadeIn animated" delay="0.3s">
+            <FormattedMessage {...messages.name} />
+          </H1>
+          <H1
+            className="fadeIn animated"
+            delay="0.6s"
+            style={{ marginBottom: 0 }}
+          >
+            <FormattedMessage {...messages.title} />
+          </H1>
+          <IconsWrapper>
+            <IconsDiv className="fadeIn animated" delay="0.8s">
+              <A href="https://www.facebook.com/urthiens" target="_blank">
+                <i className="fab fa-facebook-square" />
+              </A>
+            </IconsDiv>
+            <IconsDiv className="fadeIn animated" delay="1.1s">
+              <A href="skype:live:jevremovicdjordje97?call">
+                <i className="fab fa-skype" />
+              </A>
+            </IconsDiv>
+            <IconsDiv className="fadeIn animated" delay="1.4s">
+              <A
+                href="https://www.linkedin.com/in/djordje-jevremovic-b09a94175/"
+                target="_blank"
+              >
+                <i className="fab fa-linkedin" />
+              </A>
+            </IconsDiv>
+            <IconsDiv
+              className="fadeIn animated"
+              delay="1.7s"
+              style={{ top: '33px' }}
             >
-              <i className="fab fa-linkedin" />
-            </A>
-          </IconsDiv>
-          <IconsDiv style={{ top: '30px' }}>
-            <ResumeDiv className="resume" onClick={this.onClick} />
-          </IconsDiv>
-        </IconsWrapper>
-        <Info>
-          <FormattedMessage {...messages.phone} />
-        </Info>
-        <Info style={{ marginBottom: '0px' }}>
-          <FormattedMessage {...messages.email} />
-        </Info>
+              <ResumeDiv className="resume" onClick={this.onClick} />
+            </IconsDiv>
+          </IconsWrapper>
+          <Info>
+            <FormattedMessage {...messages.phone} />
+          </Info>
+          <Info style={{ marginBottom: '0px' }}>
+            <FormattedMessage {...messages.email} />
+          </Info>
+        </Child>
       </Wrapper>
     );
   }
