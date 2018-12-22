@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 const p = styled.p`
-  color: black;
+  color: #383339;
   font-size: 17px;
   position: relative;
   z-index: 2;

@@ -74,10 +74,10 @@ const GlobalStyle = createGlobalStyle`
     color:gray;
     transform:scale(1.1);
   }
-  img{
-    transition:.5s all;
+  img.scale{
+    transition:transform .5s;
   }
-  img:hover{
+  img.scale:hover{
     transform:scale(1.1);
   }
   img:hover{

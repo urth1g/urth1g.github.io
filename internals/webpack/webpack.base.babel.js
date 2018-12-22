@@ -55,7 +55,7 @@ module.exports = options => ({
         test: /\.svg$/,
         use: [
           {
-            loader: 'svg-url-loader',
+            loader: 'file-loader',
             options: {
               // Inline files smaller than 10 kB
               limit: 10 * 1024,

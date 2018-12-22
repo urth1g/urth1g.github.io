@@ -77,7 +77,7 @@ const ResumeDiv = styled.div`
     background-size: cover;
     background-position: center;
     cursor: pointer;
-    transform: scale(1.08) translateY(-50%);
+    transform: scale(1.063) translateY(-50%);
   }
 `;
 
@@ -130,7 +130,7 @@ class Header extends React.Component {
   onClick(e) {
     e.preventDefault();
 
-    const a = document.createElement('a');
+    let a = document.createElement('a');
 
     a.href = 'download';
     a.click();

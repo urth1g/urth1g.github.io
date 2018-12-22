@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient(white 0%, white 100%);
+  background-color:#E5DFEB;
   background-position: 56% 80%;
   background-attachment: fixed;
 `;
@@ -43,7 +43,7 @@ class AboutPage extends React.Component {
   render() {
     return (
       <Wrapper>
-        <h2 style={{ textAlign: 'center', paddingTop: '25px' }}>About me</h2>
+        <h2 style={{ textAlign: 'center', paddingTop: '25px', color:'#445D81' }}>About me</h2>
         <div className="row">
           <div className="col-sm-6">
             <P>Hello!</P>
@@ -69,8 +69,8 @@ class AboutPage extends React.Component {
             <P>Nice to meet you, by the way &#58;&#41;</P>
           </div>
           <div className="col-sm-6">
-            <ImgContainer className="img1">
-              <img src={WebImg} alt="Web Development" />
+            <ImgContainer style={{animationDelay:'1s'}} className="img1">
+              <img src={WebImg} className="scale" alt="Web Development" />
             </ImgContainer>
           </div>
         </div>

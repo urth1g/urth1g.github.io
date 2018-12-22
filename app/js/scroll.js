@@ -21,31 +21,39 @@ function scrollToDiv(height) {
 
 function isInViewScrollUp(offset, name, direction) {
   return (
-    offset >= returnOffset(name) - 5 &&
+    offset <= returnOffset(name) &&
     direction >= 0 &&
-    offset + $(window).height() <= returnOffset(name) + returnHeight(name)
+    offset + returnHeight(name) > returnOffset(name) 
   );
 }
 function isInViewScrollDown(offset, name, direction) {
   return (
-    offset >= returnOffset(name) - 5 &&
+    offset + returnHeight(name) >= returnOffset(name)  &&
     direction <= 0 &&
-    offset + $(window).height() <= returnOffset(name) + returnHeight(name)
+    offset + returnHeight(name) < returnOffset(name) + returnHeight(name) ||
+    ( offset == returnOffset(name) && direction <= 0 )
   );
 }
-$(document).ready(() => {
-  let page1 = true;
-  let page2 = false;
-  let page3 = false;
-  let page4 = false;
-  let page5 = false;
 
-  $(window).bind('mousewheel', e => {
+let page1 = true;
+let page2 = false;
+let page3 = false;
+let page4 = false;
+let page5 = false;
+
+function handler(e){
     e.preventDefault();
 
-    const direction = e.originalEvent.wheelDelta;
+    const direction = e.wheelDelta;
     const offset = window.pageYOffset;
 
+    console.log(direction);
+    if(isInViewScrollUp(offset, '.page-2', direction)){
+      console.log("Inview")
+    }else if(isInViewScrollDown(offset, '.page-3', direction)){
+      console.log(isInViewScrollDown(offset, ".page-2", direction))
+      console.log(isInViewScrollDown(offset, '.page-3', direction));
+    }
     if (
       page1 &&
       direction <= 0 &&
@@ -59,14 +67,14 @@ $(document).ready(() => {
       page2 = true;
     } else if (
       (page2 && direction >= 0) ||
-      isInViewScrollUp(offset, '.page-2', direction)
+      isInViewScrollUp(offset, ".page-2", direction)
     ) {
       scrollToDiv(returnOffset('.page-1'));
       page2 = false;
       page1 = true;
     } else if (
       (page2 && direction <= 0) ||
-      isInViewScrollDown(offset, '.page-2', direction)
+      isInViewScrollDown(offset, ".page-2", direction)
     ) {
       scrollToDiv(returnOffset('.page-3'));
       page2 = false;
@@ -110,5 +118,11 @@ $(document).ready(() => {
       page5 = false;
       page4 = true;
     }
-  });
-});
+    console.log(page1,page2,page3,page4,page5);
+  }
+function DOMMouseScrollHandler(e){
+  e.preventDefault();
+}
+
+window.addEventListener("scroll", DOMMouseScrollHandler, false);
+window.addEventListener("mousewheel", handler, false);
