@@ -3,10 +3,9 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
+import Pic from 'images/CV.jpg';
 import List from './List';
 import ListItem from './ListItem';
-
-import Pic from '../../images/slika2.jpg';
 
 import store from './reducer';
 
@@ -31,7 +30,7 @@ const A = styled(Link)`
 `;
 
 const Overlay = styled.div`
-  box-shadow: inset 80px -80px 50px 23px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 80px -80px 50px 23px rgba(0, 0, 0, 0.05);
   width: 150px;
   height: 250px;
   position: absolute;
@@ -48,17 +47,17 @@ function Img() {
       style={{
         left: '50%',
         textAlign: 'center',
-        width: '300px',
+        width: '350px',
         transform: 'translateX(-50%)',
         position: 'relative',
         display: 'inline-block',
+        zIndex: 5,
       }}
     >
       <Overlay />
       <img
         style={{ border: '3px solid white', borderRadius: '25px' }}
-        width="150"
-        height="250"
+        width="180"
         alt="pic"
         src={Pic}
       />

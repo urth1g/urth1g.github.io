@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
   const file = 'app/file/CV.pdf';
 
   res.setHeader('Content-disposition', 'attachment; filename=CV.pdf');
-  res.setHeader("Content-type", 'application/pdf');
+  res.setHeader('Content-type', 'application/pdf');
   res.download(file);
 });
 

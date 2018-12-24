@@ -130,7 +130,7 @@ class Header extends React.Component {
   onClick(e) {
     e.preventDefault();
 
-    let a = document.createElement('a');
+    const a = document.createElement('a');
 
     a.href = 'download';
     a.click();
