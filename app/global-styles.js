@@ -90,6 +90,15 @@ const GlobalStyle = createGlobalStyle`
   ::-webkit-scrollbar {
     display: none;
   }
+  .showDiv{
+    position:fixed;
+    left:0px;
+    top:0px;
+    width:100%;
+    height:100vh;
+    background-color:white;
+    display:none;
+  }
 `;
 
 export default GlobalStyle;

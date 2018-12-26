@@ -86,6 +86,10 @@ function handler(e) {
     (page3 && direction <= 0) ||
     isInViewScrollDown(offset, '.page-3', direction)
   ) {
+    if (!$('.pr1').hasClass('done')) {
+      $('.pr1').addClass('fadeInLeft animated done');
+      $('.pr2').addClass('fadeInRight animated done');      
+    }  
     scrollToDiv(returnOffset('.page-4'));
     page3 = false;
     page4 = true;
@@ -100,6 +104,10 @@ function handler(e) {
     (page4 && direction <= 0) ||
     isInViewScrollDown(offset, '.page-4', direction)
   ) {
+    if (!$('.pr1').hasClass('done')) {
+      $('.pr1').addClass('fadeInLeft animated done');
+      $('.pr2').addClass('fadeInRight animated done');
+    }  
     scrollToDiv(returnOffset('.page-5'));
     page4 = false;
     page5 = true;
