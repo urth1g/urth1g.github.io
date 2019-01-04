@@ -26,11 +26,11 @@ const Wrapper = styled.div`
   }
 `;
 const Overlay = styled.div`
-  background: linear-gradient(rgba(0, 0, 0, 0.55) 15%, rgba(0, 0, 0, 0.4) 40%);
+  background: linear-gradient(rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.7) 60%);
   position: absolute;
   width: 100%;
   height: 100vh;
-  z-index: 1;
+  z-index: 2;
 `;
 
 const H1 = styled.h1`

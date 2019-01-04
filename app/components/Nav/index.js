@@ -3,7 +3,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
-import Pic from 'images/CV.jpg';
+import Pic from 'images/CV.png';
 import List from './List';
 import ListItem from './ListItem';
 
@@ -51,13 +51,12 @@ function Img() {
         transform: 'translateX(-50%)',
         position: 'relative',
         display: 'inline-block',
-        zIndex: 5,
       }}
     >
       <Overlay />
       <img
-        style={{ border: '3px solid white', borderRadius: '25px' }}
-        width="180"
+        style={{background:'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6))',border: '3px solid white', borderRadius: '500px' }}
+        width="220"
         alt="pic"
         src={Pic}
       />

@@ -3,9 +3,6 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   html,
   body {
-    height: 100%;
-    width: 100%;
-    scrollbar-width:none;
   }
 
   a{
@@ -84,20 +81,20 @@ const GlobalStyle = createGlobalStyle`
     color:gray;
   }
 
-  .container-fluid::-webkit-scrollbar{
-    display:none;
-  }
-  ::-webkit-scrollbar {
-    display: none;
-  }
   .showDiv{
     position:fixed;
     left:0px;
     top:0px;
     width:100%;
     height:100vh;
-    background-color:white;
+    background-color:rgba(0,0,0,0.6);
     display:none;
+    z-index:55;
+    text-align:center;
+  }
+
+  ::-webkit-scrollbar { 
+      display: none; 
   }
 `;
 

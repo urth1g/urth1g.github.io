@@ -24,8 +24,9 @@ import GlobalStyle from '../../global-styles';
 const AppWrapper = styled.div`
   margin: 0 auto;
   display: flex;
-  min-height: 100%;
   flex-direction: column;
+  min-height:100%;
+  overflow:hidden;
 `;
 
 const divStyle = {
