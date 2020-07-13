@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data Visualisation</title>
+	<link rel='stylesheet' href="./src/css/main.css" />
+</head>
+<body>
+	<div id="controls">
+		<label>Max Num</label>
+		<input type="range" id="num_range" min=0 max=256 />
+		<label>Number of items inside array</label>
+		<input type="range" id="num_of_array_items" min=2 max=512 />
+		<label>Delay</label>
+		<input type="range" id="delay" min=0 max=2500 value="150"/>
+		<button id="startSorting">Sort the array</button>
+		<select id="sortType">
+			<option value="mergeSort">Merge Sort</option>
+			<option value="bubbleSort">Bubble Sort</option>
+			<option value="cocktailSort">Cocktail Sort</option>
+			<option value="heapSort">Heap Sort</option>
+			<option value="radixSort">Radix Sort</option>
+			<option value="insertionSort">Insertion Sort</option>
+			<option value="quickSort">Quick Sort</option>
+			<option value="combSort">Comb Sort</option>
+		</select>
+	</div>
+	<div id="canvas-container"></div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+	<script src="./dist/bundle.js"></script>
+</body>
+</html>
